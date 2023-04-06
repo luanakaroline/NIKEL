@@ -6,15 +6,17 @@ let data = {
     transactions: []
 };
 
-document.getElementById("button-logout").addEventListener("click", logout);
+checkLogged();
+
+document.getElementById("logout-button").addEventListener("click", logout);
 
 //ADICIONAR LANCAMENTO
-document.getElementById("transation-form").addEventListener("submit", function(e) {
+document.getElementById("transation-form").addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const value = parseFloat (document.getElementById("value-input").value);
-    const description = document.getElementById("description-input").value;
-    const date = document.getElementById("date-input").value;
+    const value = parseFloat (document.getElementById('value-input').value);
+    const description = document.getElementById('description-input').value;
+    const date = document.getElementById('date-input').value;
     const type = document.querySelector('input[name="type-input"]:checked').value;
 
     data.transactions.unshift({
@@ -31,8 +33,6 @@ document.getElementById("transation-form").addEventListener("submit", function(e
 
 });
 
-checkLogged();
-
 function checkLogged() {
     if(session) {
         sessionStorage.setItem("logged", session);
@@ -40,7 +40,7 @@ function checkLogged() {
     }
 
     if(!logged) {
-        window, location.href = "index.html";
+        window.location.href = 'index.html';
         return;
     }
 
@@ -57,7 +57,7 @@ function logout() {
     sessionStorage.removeItem("logged");
     localStorage.removeItem("session");
 
-    window.location.href = "index.html";
+    window.location.href = 'index.html';
 }
 
 function getTransactions() {
@@ -68,7 +68,7 @@ function getTransactions() {
         transactions.forEach((item) => {
             let type = "entrada";
 
-            if(item.type === "2") {
+            if(item.type === 2) {
                 type = "saída";
             }
             transactionsHtml += `
@@ -78,12 +78,12 @@ function getTransactions() {
                 <td>${type}</td>
                 <td>${item.description}</td>
             </tr>
-            `
-        })
+            `;
+        });
+    
+
+    document.getElementById('transactions-list').innerHTML = transactionsHtml;
     }
-
-    document.getElementById("transactions-list").innerHTML = transactionsHtml
-
 }
 
 function saveData(data) {
