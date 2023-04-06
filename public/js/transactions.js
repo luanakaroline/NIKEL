@@ -1,7 +1,6 @@
 const myModal = new bootstrap.Modal("#transaction-modal");
 let logged = sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
-
 let data = {
     transactions: []
 };
@@ -10,11 +9,11 @@ checkLogged();
 
 document.getElementById("logout-button").addEventListener("click", logout);
 
-//ADICIONAR LANCAMENTO
-document.getElementById("transation-form").addEventListener('submit', function(e) {
+//ADICIONAR LANÇAMENTO
+document.getElementById("transaction-form").addEventListener('submit', function(e) {
     e.preventDefault();
-
-    const value = parseFloat (document.getElementById('value-input').value);
+    
+    const value = parseFloat(document.getElementById('value-input').value);
     const description = document.getElementById('description-input').value;
     const date = document.getElementById('date-input').value;
     const type = document.querySelector('input[name="type-input"]:checked').value;
@@ -29,7 +28,7 @@ document.getElementById("transation-form").addEventListener('submit', function(e
 
     getTransactions();
 
-    alert("Lançamento adicionado com sucesso!");
+    alert("Lançamento adicionado com sucesso.");
 
 });
 

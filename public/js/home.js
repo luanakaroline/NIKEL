@@ -7,13 +7,15 @@ let data = {
     transactions: []
 };
 
+checkLogged();
+
 document.getElementById("logout-button").addEventListener("click", logout);
 document.getElementById("transactions-button").addEventListener("click", function() {
     window.location.href =  'transactions.html';
 })
 
-//ADICIONAR LANCAMENTO
-document.getElementById("transation-form").addEventListener('submit', function(e) {
+//ADICIONAR LANÇAMENTO
+document.getElementById("transaction-form").addEventListener('submit', function(e) {
     e.preventDefault();
 
     const value = parseFloat(document.getElementById('value-input').value);

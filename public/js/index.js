@@ -5,12 +5,12 @@ const session = localStorage.getItem("session");
 checkedLogged();
 
 //LOGAR NO SISTEMA
-document.getElementById("login-form").addEventListener("submit", function(e){
+document.getElementById("login-form").addEventListener('submit', function(e){
     e.preventDefault();
 
-    const email = document.getElementById("email-create-input").value;
-    const password = document.getElementById("password-create-input").value;
-    const checkSession = document.getElementById("session-check").checked;
+    const email = document.getElementById('email-input').value;
+    const password = document.getElementById('password-input').value;
+    const checkSession = document.getElementById('session-check').checked;
 
     const account = getAccount(email);
 
@@ -27,18 +27,18 @@ document.getElementById("login-form").addEventListener("submit", function(e){
 
         saveSession(email, checkSession)
 
-        window.location.href = "home.html";
+        window.location.href = 'home.html';
     }
 });
 
 //CRIAR CONTA
-document.getElementById("create-form").addEventListener("submit", function(e) {
+document.getElementById("create-form").addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const email = document.getElementById("email-create-input").value;
-    const password = document.getElementById("password-create-input").value;
+    const email = document.getElementById('email-create-input').value;
+    const password = document.getElementById('password-create-input').value;
 
-    if(email.length < 5) {
+    if(email.length < 3) {
         alert("Preencha o campo com um e-mail válido!")
         return
     }
@@ -68,7 +68,7 @@ function checkedLogged() {
     if(logged) {
         saveSession(logged, session);
 
-        window.location.href = "home.html";
+        window.location.href = 'home.html';
     }
 }
 
