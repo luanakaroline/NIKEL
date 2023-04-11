@@ -9,10 +9,10 @@ checkLogged();
 
 document.getElementById("logout-button").addEventListener("click", logout);
 
-//ADICIONAR LANÇAMENTO
+//ADICIONAR LANCAMENTO
 document.getElementById("transaction-form").addEventListener('submit', function(e) {
     e.preventDefault();
-    
+
     const value = parseFloat(document.getElementById('value-input').value);
     const description = document.getElementById('description-input').value;
     const date = document.getElementById('date-input').value;
@@ -65,23 +65,23 @@ function getTransactions() {
 
     if(transactions.length) {
         transactions.forEach((item) => {
-            let type = "entrada";
+            let type = "Entrada";
 
             if(item.type === 2) {
-                type = "saída";
+                type = "Saída";
             }
+
             transactionsHtml += `
-            <tr>
-                <th scope="row">${item.date}</th>
-                <td>${item.value.toFixed(2)}</td>
-                <td>${type}</td>
-                <td>${item.description}</td>
-            </tr>
+                <tr>
+                    <th scope="row">${item.date}</th>
+                    <td>${item.value.toFixed(2)}</td>
+                    <td>${type}</td>
+                    <td>${item.description}</td>
+                </tr>
             `;
         });
-    
 
-    document.getElementById('transactions-list').innerHTML = transactionsHtml;
+        document.getElementById('transactions-list').innerHTML = transactionsHtml;
     }
 }
 
